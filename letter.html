@@ -1,0 +1,169 @@
+<!doctype html><html>
+<head>
+<style type="text/css">
+	div {
+		font-family: "Open Sans", Arial, sans-serif;
+		position: absolute;
+	}
+
+	.page {
+		top: 0;
+		left: 0;
+		width: 210mm !important;
+	    max-width: 210mm !important;
+	    overflow: hidden;
+	    height: 297mm !important;
+	    max-height: 297mm !important;
+ 	}
+
+ 	@media screen {
+ 		.box {
+ 			border: 1px dotted grey;
+ 		}
+
+ 		.page {
+ 			position: relative;
+ 			margin: 50px auto;
+ 			box-shadow: 0px 0px 4px 2px grey;
+ 			background: white;
+ 		}
+ 		body {
+ 			background: #CCC;
+ 		}
+ 	}
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	p {
+		padding: 5px;
+	}
+
+	*[contenteditable] div {
+		position: static;
+		display: block;
+	}
+
+	#address_box {
+		left: 20mm;
+		top: 27mm;
+		width: 85mm;
+		height: 45mm;
+	}
+
+	#return_to_sender {
+		top: 2mm;
+		left: 0;
+		width: 85mm;
+		height: 5mm;
+		color: grey;
+		border-bottom: 1px solid grey;
+		font-size: 3mm;
+		text-align: center;
+		padding-top: 1mm;
+	}
+
+	#address {
+		top: 9mm;
+		width: 81mm;
+		height: 36mm;
+		padding: 2mm;
+	}
+
+	.faltmarke {
+		position: absolute;
+		top: 87mm;
+		left: 0;
+		width: 10mm;
+		border-color: black;
+	}
+
+	#lochmarke {
+		position: absolute;
+		top: 148.5mm;
+		left: 0;
+		width: 5mm;
+		border: 1px solid lightgrey;
+	}
+
+	#faltmarke1 {
+		top: 87mm;
+	}
+
+	#faltmarke1 {
+		top: 192mm;
+	}
+
+	#infoblock {
+		text-align: right;
+		left: 125mm;
+		top: 32mm;
+		font-size: 0.9rem;
+		width: 75mm;
+		height: 60mm;
+	}
+
+	#text {
+		top: 100mm;
+		left: 25mm;
+		width: 165mm;
+		display: block;
+	}
+
+	.text-inner {
+		padding: 10px;
+		display: block;
+		position: static;
+		width: auto;
+	}
+
+	#text-body {
+		min-height: 80mm;
+		margin-bottom: 5mm;
+	}
+
+	#date {
+		float: right;
+	}
+</style>
+</head>
+<body>
+	<div class="page box">
+	<div id="address_box" class="box">
+		<div id="return_to_sender"><span contenteditable>Max Mustermann - Musterstrasse 1 - 12345 Musterstadt</p></div>
+		<div id="address"><p contenteditable>
+			Max Mustermann<br/>
+			Musterstrasse 1<br/>
+			12345 Musterstadt</p>
+		</div>
+	</div>
+	<div id="infoblock" class="box"><span contenteditable>
+		Ihr Zeichen: abc-01<br/>
+		Ihre Nachricht vom: 2013-04-23<br/>
+		Unser Zeichen: mihh-00<br/>
+		Unsere Nachricht vom: 2013-04-16<br/>
+<br/>
+		Name: Max Mustermann<br/>
+		Telefon: 123123123<br/>
+		Telefax: 123123123<br/>
+		Email: max.mustermann@moogle.de</span>
+	</div>
+	<hr id="faltmarke1" class="faltmarke"/>
+	<hr id="faltmarke2" class="faltmarke"/>
+	<hr id="lochmarke"/>
+	<div id="text" class="">
+		<div class="text-inner box" id="text-body">
+			<h3><span contenteditable>Betreff: </span><span id="date" contenteditable>Musterstadt, 1.1.2016</span></h3>
+			<p>&nbsp;</p>
+			<p contenteditable>Sehr geehrte Damen und Herren,<br/>
+			</p>
+		</div>
+		<div class="text-inner box" id="text-footer">
+			<p contenteditable>Mit freundlichen Gr&uuml;&szlig;en<br/><br/><br/>Max Mustermann</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
