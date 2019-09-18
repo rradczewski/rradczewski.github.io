@@ -1,46 +1,51 @@
 <!doctype html><html>
 <head>
-<style type="text/css">
-	div {
-		font-family: "Open Sans", Arial, sans-serif;
-		position: absolute;
-	}
-
+	<style type="text/css">
 	@page {
 		size: A4 portrait;
 		margin: 0;
 		padding: 0;
 	}
+
 	html, body { height: auto; }
-		window, body {
+	window, body {
+		font-family: "Helvetica Neue", "Open Sans", Arial, sans-serif;
 		margin: 0;
 		padding: 0;
 	}
+
 	.page {
 		top: 0;
 		left: 0;
 		width: 210mm !important;
-	    max-width: 210mm !important;
-	    overflow: hidden;
-	    height: 297mm !important;
-	    max-height: 297mm !important;
- 	}
+		max-width: 210mm !important;
+		overflow: hidden;
+		height: 297mm !important;
+		max-height: 297mm !important;
+	}
 
- 	@media screen {
- 		.box {
- 			border: 1px dotted grey;
- 		}
+	@media screen {
+		.page:hover .box {
+			outline: 1px dotted grey;
+		}
 
- 		.page {
- 			position: relative;
- 			margin: 50px auto;
- 			box-shadow: 0px 0px 4px 2px grey;
- 			background: white;
- 		}
- 		body {
- 			background: #CCC;
- 		}
- 	}
+		.page {
+			position: relative;
+			margin: 50px auto;
+			border-radius: 2px;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+			background: white;
+		}
+		body {
+			background: #CCC;
+		}
+	}
+
+	@media print {
+		.do-not-print {
+			display: none;
+		}
+	}
 
 	* {
 		margin: 0;
@@ -57,6 +62,7 @@
 	}
 
 	#address_box {
+		position: absolute;
 		left: 20mm;
 		top: 27mm;
 		width: 85mm;
@@ -65,6 +71,7 @@
 
 	#return_to_sender {
 		top: 2mm;
+		position: absolute;
 		left: 0;
 		width: 85mm;
 		height: 5mm;
@@ -76,6 +83,7 @@
 	}
 
 	#address {
+		position: absolute;
 		top: 9mm;
 		width: 81mm;
 		height: 36mm;
@@ -107,6 +115,7 @@
 	}
 
 	#infoblock {
+		position: absolute;
 		text-align: right;
 		left: 125mm;
 		top: 32mm;
@@ -116,6 +125,7 @@
 	}
 
 	#text {
+		position: absolute;
 		top: 100mm;
 		left: 25mm;
 		width: 165mm;
@@ -140,40 +150,48 @@
 </style>
 </head>
 <body>
-	<div class="page box">
-	<div id="address_box" class="box">
-		<div id="return_to_sender"><span contenteditable>Max Mustermann - Musterstrasse 1 - 12345 Musterstadt</p></div>
-		<div id="address"><p contenteditable>
-			Max Mustermann<br/>
-			Musterstrasse 1<br/>
-			12345 Musterstadt</p>
+	<div class="do-not-print" style="margin: 20px; text-align: center">
+		<h1>Minimalistic DIN letter template</h1>
+		<p>All content is editable, simply print to PDF or directly onto a dead tree, fold and 📮</p>
+		<p>Latest version can be found <a href="https://github.com/rradczewski/rradczewski.github.io/blob/master/letter.html">here</a>. Made by <a href="https://twitter.com/rradczewski">@rradczewski</a></p>
+	</div>
+	<div class="page">
+		<div id="address_box" class="box">
+			<div id="return_to_sender"><span contenteditable>Max Mustermann - Musterstrasse 1 - 12345 Musterstadt</span></div>
+			<div id="address"><p contenteditable>
+				Max Mustermann<br/>
+				Musterstrasse 1<br/>
+				12345 Musterstadt</p>
+			</div>
+		</div>
+		<div id="infoblock" class="box"><span contenteditable>
+			Ihr Zeichen: abc-01<br/>
+			Ihre Nachricht vom: 2013-04-23<br/>
+			Unser Zeichen: mihh-00<br/>
+			Unsere Nachricht vom: 2013-04-16<br/>
+			<br/>
+			Name: Max Mustermann<br/>
+			Telefon: 123123123<br/>
+			Telefax: 123123123<br/>
+			Email: max.mustermann@moogle.de</span>
+		</div>
+		<hr id="faltmarke1" class="faltmarke"/>
+		<hr id="faltmarke2" class="faltmarke"/>
+		<hr id="lochmarke"/>
+		<div id="text">
+			<div class="text-inner box" id="text-body">
+				<h3><span contenteditable>Betreff: </span><span id="date" contenteditable>Musterstadt, <span id="auto-date">1.1.2016</span></span></h3>
+				<p>&nbsp;</p>
+				<p contenteditable>Guten Tag,<br/>
+				</p>
+			</div>
+			<div class="text-inner box" id="text-footer">
+				<p contenteditable>Mit freundlichen Gr&uuml;&szlig;en<br/><br/><br/>Max Mustermann</p>
+			</div>
 		</div>
 	</div>
-	<div id="infoblock" class="box"><span contenteditable>
-		Ihr Zeichen: abc-01<br/>
-		Ihre Nachricht vom: 2013-04-23<br/>
-		Unser Zeichen: mihh-00<br/>
-		Unsere Nachricht vom: 2013-04-16<br/>
-<br/>
-		Name: Max Mustermann<br/>
-		Telefon: 123123123<br/>
-		Telefax: 123123123<br/>
-		Email: max.mustermann@moogle.de</span>
-	</div>
-	<hr id="faltmarke1" class="faltmarke"/>
-	<hr id="faltmarke2" class="faltmarke"/>
-	<hr id="lochmarke"/>
-	<div id="text" class="">
-		<div class="text-inner box" id="text-body">
-			<h3><span contenteditable>Betreff: </span><span id="date" contenteditable>Musterstadt, 1.1.2016</span></h3>
-			<p>&nbsp;</p>
-			<p contenteditable>Sehr geehrte Damen und Herren,<br/>
-			</p>
-		</div>
-		<div class="text-inner box" id="text-footer">
-			<p contenteditable>Mit freundlichen Gr&uuml;&szlig;en<br/><br/><br/>Max Mustermann</p>
-		</div>
-	</div>
-</div>
 </body>
+<script>
+document.querySelector("#auto-date").innerHTML = new Date().toLocaleDateString();
+</script>
 </html>
